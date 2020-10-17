@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {NgApexchartsModule} from 'ng-apexcharts';
 import {PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddSurveyComponent } from './components/add-survey/add-survey.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,15 +17,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddCategoryComponent,
     CategoryListComponent,
     PieChartComponent,
+    AddSurveyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgApexchartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
