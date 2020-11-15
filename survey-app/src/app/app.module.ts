@@ -10,6 +10,7 @@ import {PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CategoryListComponent,
     PieChartComponent,
     AddSurveyComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

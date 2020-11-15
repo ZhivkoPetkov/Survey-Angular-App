@@ -33,6 +33,8 @@ export class PieChartComponent implements OnInit {
     this.chartOptions.labels = this.labelsInput;
   }
 
+  
+
   constructor() {
   }
   ngOnInit(): void {
