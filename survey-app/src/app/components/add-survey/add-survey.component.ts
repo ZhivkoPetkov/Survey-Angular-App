@@ -13,7 +13,6 @@ export class AddSurveyComponent implements OnInit {
   surveyForm : FormGroup;
 
   ngOnInit(): void {
-
     this.surveyForm = this.formBuilder.group({
       name : new FormControl('', 
       [
@@ -28,7 +27,7 @@ export class AddSurveyComponent implements OnInit {
         [this.formBuilder.group({option : new FormControl(
         '', [Validators.required])}), 
         this.formBuilder.group({option : new FormControl(
-          '', [Validators.required])})]),
+        '', [Validators.required])})]),
     })}
 
     get options(){
@@ -45,7 +44,18 @@ export class AddSurveyComponent implements OnInit {
     }
 
     addOption() {
-      this.options.push(this.formBuilder.group({option : ''}))
+      this.options.push(this.formBuilder.group({option : new FormControl(
+        '', [Validators.required])}))
+    }
+
+    save()
+    {
+      console.log(this.surveyForm.value);
+    }
+
+    removeOption(index: number){
+      console.log(index)
+      this.options.removeAt(index);
     }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component'
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "survey/add",
     component: AddSurveyComponent,
+  },
+  {
+    path: "",
+    component:  PieChartComponent,
   },
 ];
 
