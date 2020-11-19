@@ -1,14 +1,2 @@
 <app-nav-bar></app-nav-bar>
 <router-outlet></router-outlet>
-  {{survey.name}}
-
-  <li *ngFor="let srv of survey.options">
-    {{srv.name}} with {{srv.votes}} votes!
-  </li>
-
-  <div id="chart">
-    <app-piechart  [labelsInput] = "getOptionsTitles()"
-                   [seriesInput] = "getOptionsVotes()"
-                   >
-    </app-piechart>
-  </div>

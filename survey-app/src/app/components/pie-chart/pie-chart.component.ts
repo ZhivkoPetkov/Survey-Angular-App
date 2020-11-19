@@ -1,12 +1,11 @@
-import { Component, Input, OnInit, ViewChild } from "@angular/core";
-import { ApexAxisChartSeries, ChartComponent } from "ng-apexcharts";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ChartComponent } from "ng-apexcharts";
 
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
   ApexChart
 } from "ng-apexcharts";
-import { ISurvey } from 'src/app/interfaces/ISurvey';
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -24,27 +23,14 @@ export class PieChartComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  @Input() seriesInput: any[];
-  @Input() labelsInput: string[];
-
-
-  updateSeries() : void {
-    this.chartOptions.series = this.seriesInput;
-    this.chartOptions.labels = this.labelsInput;
-  }
-
-  
-
   constructor() {
-  }
-  ngOnInit(): void {
     this.chartOptions = {
+      series: [44, 55, 13, 43, 22],
       chart: {
         width: 380,
         type: "pie"
       },
-      labels: this.labelsInput,
-      series: this.seriesInput,
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
       responsive: [
         {
           breakpoint: 480,
@@ -59,5 +45,7 @@ export class PieChartComponent implements OnInit {
         }
       ]
     };
+  }
+  ngOnInit(): void {
   }
 }
