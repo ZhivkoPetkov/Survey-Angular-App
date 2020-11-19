@@ -7,55 +7,43 @@
     Survey Name
   </h2>
   <div class="form-group row">
-  <input class="form-control" id="name" formControlName="name" required />
+    <input class="form-control" id="name" formControlName="name" required />
   </div>
-  <div class="alert alert-danger" role="alert" 
-  *ngIf="name.touched && 
+  <div class="alert alert-danger" role="alert" *ngIf="name.touched && 
          name.errors?.required">
     The name is requred!
   </div>
-  
-  <div class="alert alert-danger" role="alert" 
-  *ngIf="name.errors?.minlength &&
+
+  <div class="alert alert-danger" role="alert" *ngIf="name.errors?.minlength &&
          name.touched">
     Name must be at least 6 characters long.
   </div>
   <br>
-
   <h2> Options</h2>
-
   <div formArrayName="options">
     <div *ngFor="let item of options.controls; let optionIndex = index" [formGroupName]="optionIndex">
       <div class="input-group mb-2">
         <div class="input-group-prepend">
           <div class="input-group-text">{{optionIndex +1}}</div>
         </div>
-        <input class="form-control" id={{optionIndex}} formControlName="option" required /> 
-        <button type="button" class="close" aria-label="Close" *ngIf="options.controls.length > 2" (click)="removeOption(optionIndex)">
+        <input class="form-control" id={{optionIndex}} formControlName="option" required />
+        <button type="button" class="close" aria-label="Close" *ngIf="options.controls.length > 2"
+          (click)="removeOption(optionIndex)">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
-      <div class="alert alert-danger" 
-      role="alert" 
-      *ngIf="options.controls[optionIndex].controls.option.errors?.required && 
+      <div class="alert alert-danger" role="alert" *ngIf="options.controls[optionIndex].controls.option.errors?.required && 
              options.controls[optionIndex].touched">
         The name is requred!
       </div>
     </div>
   </div>
-
   <button class="btn btn-primary" type="button" (click)="addOption()">+</button>
-
-
   <h2>Categories</h2>
-
-
   <div *ngFor="let cat of categories; let catIndex = index">
-    <input class="form-check-input" formControlName="category" type="radio" id={{cat}} value={{cat}}>
-    <label class="form-check-label" for={{cat}}>{{cat}}</label>
+    <input class="form-check-input" formControlName="categoryId" type="radio" id={{cat.name}} value={{cat.id}}>
+    <label class="form-check-label" for={{cat.name}}>{{cat.name}}</label>
   </div>
   <br>
-  <button type="submit" class="btn btn-primary btn-lg" [disabled]="surveyForm.invalid" >Save</button>
-
+  <button type="submit" class="btn btn-primary btn-lg" [disabled]="surveyForm.invalid">Save</button>
 </form>

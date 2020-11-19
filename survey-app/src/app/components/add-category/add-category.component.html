@@ -1,10 +1,10 @@
-<h1 style="text-align: center;">Add Survey</h1>
+<h1 style="text-align: center;">Add Category</h1>
 <hr>
 
 <form [formGroup]="categoryForm" style="text-align: center" class="col-md-6 offset-md-3" (submit)="save()">
 
   <h2>
-    Survey Name
+    Category Name
   </h2>
   <div class="form-group row">
   <input class="form-control" id="name" formControlName="name" required />
@@ -21,6 +21,24 @@
     Name must be at least 6 characters long.
   </div>
   <br>
+
+  <h2>
+    Category Description
+  </h2>
+  <div class="form-group row">
+  <input class="form-control" id="name" formControlName="description" required />
+  </div>
+  <div class="alert alert-danger" role="alert" 
+  *ngIf="description.touched && 
+         description.errors?.required">
+    The name is requred!
+  </div>
+  
+  <div class="alert alert-danger" role="alert" 
+  *ngIf="description.errors?.minlength &&
+         description.touched">
+    Description must be at least 12 characters long.
+  </div>
 
   <button type="submit" class="btn btn-primary btn-lg"  [disabled]="categoryForm.invalid">Save</button>
 </form>

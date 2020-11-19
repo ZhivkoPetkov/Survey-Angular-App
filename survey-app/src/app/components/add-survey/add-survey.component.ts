@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { ICategory } from 'src/app/interfaces/ICategory';
+import { CategoryService } from 'src/app/services/category-service/category.service';
+import { SurveyService } from 'src/app/services/survey-service/survey.service';
 
 @Component({
   selector: 'app-add-survey',
@@ -8,18 +11,22 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@ang
 })
 export class AddSurveyComponent implements OnInit {
 
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder, private surveyService: SurveyService, private categorySerivce: CategoryService) { }
 
   surveyForm : FormGroup;
+  categoriesList: ICategory[];
 
   ngOnInit(): void {
+    this.categorySerivce.getCategories().subscribe(cats => {
+      this.categoriesList = cats;
+    });
     this.surveyForm = this.formBuilder.group({
       name : new FormControl('', 
       [
         Validators.required,
         Validators.minLength(6)
       ]),
-      category : new FormControl('', 
+      categoryId : new FormControl('', 
       [
         Validators.required
       ]),
@@ -35,7 +42,7 @@ export class AddSurveyComponent implements OnInit {
     }
 
     get categories(){
-      return ["Sport", "News"];
+       return this.categoriesList
     }
 
     get name()
@@ -50,11 +57,10 @@ export class AddSurveyComponent implements OnInit {
 
     save()
     {
-      console.log(this.surveyForm.value);
+      this.surveyService.postSurvey(this.surveyForm.value).subscribe(x => console.log(x));
     }
 
     removeOption(index: number){
-      console.log(index)
       this.options.removeAt(index);
     }
 
