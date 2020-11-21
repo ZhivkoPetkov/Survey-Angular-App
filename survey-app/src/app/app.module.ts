@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     PieChartComponent,
     AddSurveyComponent,
     NavBarComponent,
+    ViewChartComponent,
   ],
   imports: [
     BrowserModule,

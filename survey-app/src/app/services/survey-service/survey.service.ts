@@ -11,7 +11,7 @@ export class SurveyService {
   constructor(private http : HttpClient) { }
 
   public getSurvey(id: number) {
-   var survey = this.http.get<ISurvey>("https://localhost:44360/api/surveys/1");
+   var survey = this.http.get<ISurvey>(`https://localhost:44360/api/surveys/${id}`);
     return survey;
   }
 
@@ -24,7 +24,6 @@ export class SurveyService {
   survey.options.map(opt => {
     result.options.push(opt.option);
   })
-  console.log(result);
    return this.http.post<SurveyInputModel>("https://localhost:44360/api/surveys", result);
   }
 }
