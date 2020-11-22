@@ -15,7 +15,7 @@ export class CategoryService {
   }
 
   public postCategory(category) {
-    return this.http.post<ICategory[]>("https://localhost:44360/api/categories", category)
+    return this.http.post("https://localhost:44360/api/categories", category);
   }
 
 }

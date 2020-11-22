@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { IOption } from 'src/app/interfaces/IOption';
 import { ISurvey } from 'src/app/interfaces/ISurvey';
 import { SurveyService } from 'src/app/services/survey-service/survey.service';
 import { PieChartComponent } from '../../pie-chart/pie-chart.component';
@@ -12,23 +13,24 @@ import { PieChartComponent } from '../../pie-chart/pie-chart.component';
 export class ViewChartComponent implements OnInit {
   @ViewChild(PieChartComponent) chart: PieChartComponent;
 
-  constructor(private route: ActivatedRoute, 
-              private surveyService: SurveyService) {
+  constructor(private route: ActivatedRoute,
+    private surveyService: SurveyService) {
   }
   survey: ISurvey;
   votes: number[];
   labels: string[];
   isVoted: boolean;
-  votedFor : string;
+  votedFor: string;
 
   ngOnInit(): void {
     this.survey = this.route.snapshot.data['survey'];
     this.votes = this.survey.options.map(x => x.votes);
     this.labels = this.survey.options.map(x => x.name);
     this.isVoted = false;
+
   }
 
-  voteFor(index){
+  voteFor(index) {
     this.votes[index]++
     this.votedFor = this.labels[index];
     this.isVoted = true;
@@ -38,7 +40,7 @@ export class ViewChartComponent implements OnInit {
     })
   }
 
-  deleteSurvey(){
+  deleteSurvey() {
     this.surveyService.deleteSurvey(this.survey.id).subscribe(survey => {
       console.log(survey);
     })

@@ -17,6 +17,10 @@
 
     <div>
         <h3>Administrative tools:</h3>
-        <button type="button" class="btn btn-outline-danger" (click)="deleteSurvey()">Delete Survey</button>
+       
+        <button type="button" style="margin-right:30px;" class="btn btn-outline-danger" (click)="deleteSurvey()">Delete Survey</button>
+
+        <button type="button" class="btn btn-outline-danger" [routerLink]="['edit']">Edit Survey</button>
+  
     </div>
 </div>
