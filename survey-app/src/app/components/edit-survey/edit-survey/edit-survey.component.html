@@ -1,0 +1,57 @@
+<h3>da se dobavq opciq, da se save, check, errors</h3>
+
+
+<div class="text-center form-center">
+  <form [formGroup]="form" class="col-md-8">
+    <h2 class="text-center font-weight-bold text-uppercase py-4">Survey Name</h2>
+    <div class="form-group row">
+      <input class="form-control" id="name" formControlName="name" required />
+    </div>
+
+    <h2> Options</h2>  <button class="btn btn-primary" type="button" (click)="addOption()">+</button>
+    <div class="row">
+      <div class="col-md-7">
+        <h3>Name</h3>
+        <div formArrayName="options">
+          <div *ngFor="let item of options.controls; let optionIndex = index" [formGroupName]="optionIndex">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{optionIndex +1}}</div>
+              </div>
+              <input class="form-control" id={{optionIndex}} formControlName="option" required />
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="options.controls[optionIndex].controls.option.errors?.required && 
+                   options.controls[optionIndex].touched">
+              The name is requred!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <h3>Votes</h3>
+        <div formArrayName="optionVotes">
+          <div *ngFor="let item of optionVotes.controls; let optionIndex = index" [formGroupName]="optionIndex">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">{{optionIndex +1}}</div>
+              </div>
+              <input class="form-control" type=number min="0" id={{optionIndex}} formControlName="optionVote"
+                required />
+              <button type="button" class="close" aria-label="Close" *ngIf="options.length > 2"
+                (click)="removeOption(optionIndex)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="optionVotes.controls[optionIndex].controls.optionVote.errors?.required && 
+          optionVotes.controls[optionIndex].touched">
+              The name is requred!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg" (click)="save()">Save</button>
+  </form>
+</div>
+

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
+import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component'
 import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
 import { ViewSurveyResolver } from './resolvers/view-survey.resolver';
@@ -16,12 +17,13 @@ const routes: Routes = [
     component: AddSurveyComponent,
   },
   {
-    path: "",
-    component:  PieChartComponent,
-  },
-  {
     path: "survey/:id",
     component: ViewChartComponent,
+    resolve: {survey : ViewSurveyResolver}
+  },
+  {
+    path: "survey/:id/edit",
+    component: EditSurveyComponent,
     resolve: {survey : ViewSurveyResolver}
   }
 ];
