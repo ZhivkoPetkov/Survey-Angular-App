@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
+import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-s
     NavBarComponent,
     ViewChartComponent,
     EditSurveyComponent,
+    ListSurveysComponent,
   ],
   imports: [
     BrowserModule,

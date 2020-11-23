@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { ISurvey } from 'src/app/interfaces/ISurvey';
 import { SurveyInputModel } from 'src/app/interfaces/SurveyInputModel';
 import { SurveyUpdateModel } from 'src/app/interfaces/SurveyUpdateModel';
+import { SurveyViewModel } from 'src/app/interfaces/SurveyViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,9 @@ export class SurveyService {
     
   public updateSurvey(survey: ISurvey){
     return this.http.post<ISurvey>(`https://localhost:44360/api/surveys/update`, survey);
+  }
+
+  public getSurveysByCategory(categoryName: string){
+    return this.http.get<SurveyViewModel[]>(`https://localhost:44360/api/surveys/category/${categoryName}`);
   }
 }
