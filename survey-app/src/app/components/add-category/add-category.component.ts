@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CategoryService } from 'src/app/services/category-service/category.serv
 })
 export class AddCategoryComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private categoryService: CategoryService) { }
+  constructor(private formBuilder: FormBuilder, private categoryService: CategoryService, private router : Router) { }
 
   categoryForm: FormGroup
 
@@ -37,6 +38,12 @@ export class AddCategoryComponent implements OnInit {
   }
 
   save() {
-    this.categoryService.postCategory(this.categoryForm.value).subscribe(x => console.log(x))
+    this.categoryService.postCategory(this.categoryForm.value).subscribe(
+      (res) => {
+        let id = res['id'];
+        this.router.navigate([""])
+      },
+      (error) => { console.log(`error: ${error}`) }
+    );
   }
 }

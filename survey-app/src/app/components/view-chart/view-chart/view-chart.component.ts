@@ -27,7 +27,7 @@ export class ViewChartComponent implements OnInit {
     this.votes = this.survey.options.map(x => x.votes);
     this.labels = this.survey.options.map(x => x.name);
     this.isVoted = false;
-
+    this.survey.name = this.survey.name.endsWith('?') ? this.survey.name : this.survey.name+'?'
   }
 
   voteFor(index) {
