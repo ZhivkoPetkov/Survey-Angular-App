@@ -1,0 +1,26 @@
+
+<div style="text-align: center;">
+    <h2><u>Categories Аdministration</u></h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Surveys</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let category of categories; let index = index">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{category.name}}</td>
+            <td>{{category.description}}</td>
+            <td>{{category.surveys.length}}</td>
+            <td><button class="link" ng-really-message="Are you sure?" (click)="delete(category.id)">Delete</button> | <button class="link" (click)="edit(category.id)">Edit</button></td>
+          </tr>
+        
+        </tbody>
+      </table>
+</div>

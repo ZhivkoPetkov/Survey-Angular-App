@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
+import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
 import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
@@ -19,17 +20,22 @@ const routes: Routes = [
   {
     path: "survey/:id",
     component: ViewChartComponent,
-    resolve: {survey : ViewSurveyResolver}
+    resolve: { survey: ViewSurveyResolver }
   },
   {
     path: "survey/:id/edit",
     component: EditSurveyComponent,
-    resolve: {survey : ViewSurveyResolver}
+    resolve: { survey: ViewSurveyResolver }
   },
   {
-  path: ":category",
-  component: ListSurveysComponent,
+    path: ":category",
+    component: ListSurveysComponent,
+  }, {
+    path: "admin/categories",
+    component: CategoryListAdministrationComponent,
   }];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

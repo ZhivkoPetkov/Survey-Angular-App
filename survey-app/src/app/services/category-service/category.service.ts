@@ -14,7 +14,11 @@ export class CategoryService {
     return this.http.get<ICategory[]>("https://localhost:44360/api/categories")
   }
 
-  public postCategory(category) {
+  public deleteCategory(id: number) {
+    return this.http.delete(`https://localhost:44360/api/categories/${id}`)
+  }
+
+  public postCategory(category: string) {
     return this.http.post("https://localhost:44360/api/categories", category);
   }
 
