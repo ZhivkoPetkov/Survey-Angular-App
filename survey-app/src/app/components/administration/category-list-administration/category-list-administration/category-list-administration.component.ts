@@ -19,10 +19,6 @@ export class CategoryListAdministrationComponent implements OnInit {
     console.log(this.categories);
   }
 
-  edit(id) {
-    //TODO
-  }
-
   delete(id) {
     this.categories = this.categories.filter(x => x.id != id);
     this.categoryService.deleteCategory(id).subscribe(() => { })

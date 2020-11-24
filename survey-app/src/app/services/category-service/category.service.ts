@@ -22,4 +22,12 @@ export class CategoryService {
     return this.http.post("https://localhost:44360/api/categories", category);
   }
 
+  public getCategory(id: number) {
+    return this.http.get<ICategory>(`https://localhost:44360/api/categories/${id}`);
+  }
+
+  public updateCategory(category: ICategory){
+    return this.http.post<ICategory>(`https://localhost:44360/api/categories/update`, category);
+  }
+
 }

@@ -18,7 +18,7 @@
             <td>{{category.name}}</td>
             <td>{{category.description}}</td>
             <td>{{category.surveys.length}}</td>
-            <td><button class="link" ng-really-message="Are you sure?" (click)="delete(category.id)">Delete</button> | <button class="link" (click)="edit(category.id)">Edit</button></td>
+            <td><button class="link" (click)="delete(category.id)">Delete</button> | <button  [routerLink]= "['../../','category',category.id, 'edit']"  class="link" >Edit</button></td>
           </tr>
         
         </tbody>

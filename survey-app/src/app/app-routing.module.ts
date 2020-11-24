@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
 import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category/edit-category.component';
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
 import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
+import { ViewCategoryResolver } from './resolvers/view-category/view-category.resolver';
 import { ViewSurveyResolver } from './resolvers/view-survey.resolver';
 
 const routes: Routes = [
@@ -30,7 +32,13 @@ const routes: Routes = [
   {
     path: ":category",
     component: ListSurveysComponent,
-  }, {
+  },
+  {
+    path: "category/:id/edit",
+    component: EditCategoryComponent,
+    resolve: { category: ViewCategoryResolver }
+  },
+  {
     path: "admin/categories",
     component: CategoryListAdministrationComponent,
   }];

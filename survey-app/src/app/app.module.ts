@@ -15,6 +15,7 @@ import { ViewChartComponent } from './components/view-chart/view-chart/view-char
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
 import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CategoryListAdministrationComponent } from './components/administration
     EditSurveyComponent,
     ListSurveysComponent,
     CategoryListAdministrationComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,
