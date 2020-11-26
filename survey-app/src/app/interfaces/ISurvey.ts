@@ -6,5 +6,6 @@ export interface ISurvey
     id : number,
     name : string,
     options : IOption[],
+    categoryId : number,
     Category : ICategory,
 } 

@@ -1,6 +1,3 @@
-<h3>da se dobavq opciq, da se save, check, errors</h3>
-
-
 <div class="text-center form-center">
   <form [formGroup]="form" class="col-md-8">
     <h2 class="text-center font-weight-bold text-uppercase py-4">Survey Name</h2>
@@ -8,6 +5,13 @@
       <input class="form-control" id="name" formControlName="name" required />
     </div>
 
+    <h2>Categories</h2>
+    <div *ngFor="let cat of categories | async; let catIndex = index">
+      <input class="form-check-input" formControlName="categoryId" type="radio" [checked]="true" id={{cat.name}} [value]="cat.id">
+      <label class="form-check-label" for={{cat.name}}>{{cat.name}}</label>
+    {{form.controls['categoryId'].value == cat.id}}
+    </div>
+    
     <h2> Options</h2>  <button class="btn btn-primary" type="button" (click)="addOption()">+</button>
     <div class="row">
       <div class="col-md-7">
@@ -52,7 +56,7 @@
       </div>
     </div>
     <button  class="btn btn-warning  btn-lg" style="margin-right: 50px;" [routerLink]="['../']">Back</button>
-    <button type="submit" class="btn btn-success btn-lg" (click)="save()">Save</button>
+    <button type="submit" class="btn btn-success btn-lg" [disabled]='form.invalid' (click)="save()">Save</button>
   </form>
 </div>
 
