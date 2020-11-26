@@ -40,7 +40,7 @@
   </div>
   <button class="btn btn-primary" type="button" (click)="addOption()">+</button>
   <h2>Categories</h2>
-  <div *ngFor="let cat of categories; let catIndex = index">
+  <div *ngFor="let cat of categories | async; let catIndex = index">
     <input class="form-check-input" formControlName="categoryId" type="radio" id={{cat.name}} value={{cat.id}}>
     <label class="form-check-label" for={{cat.name}}>{{cat.name}}</label>
   </div>

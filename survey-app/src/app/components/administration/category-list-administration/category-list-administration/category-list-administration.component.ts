@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/internal/operators/map';
 import { ICategory } from 'src/app/interfaces/ICategory';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 
@@ -8,19 +10,17 @@ import { CategoryService } from 'src/app/services/category-service/category.serv
   styleUrls: ['./category-list-administration.component.css']
 })
 export class CategoryListAdministrationComponent implements OnInit {
-  categories: ICategory[]
+  categories$: Observable<ICategory[]>
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe(cats => {
-      console.log(cats);
-      this.categories = cats;
-    });
-    console.log(this.categories);
+    this.categories$ = this.categoryService.getCategories();
   }
 
   delete(id) {
-    this.categories = this.categories.filter(x => x.id != id);
-    this.categoryService.deleteCategory(id).subscribe(() => { })
+    this.categories$ = this.categories$.pipe(map(categories => categories.filter(x => x.id != id)));
+    this.categoryService.deleteCategory(id).subscribe(() =>{
+      console.log(`Category was deleted.`)
+    });
   }
 }

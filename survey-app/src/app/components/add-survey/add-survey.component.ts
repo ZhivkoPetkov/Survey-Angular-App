@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
 import { ICategory } from 'src/app/interfaces/ICategory';
 import { CategoryService } from 'src/app/services/category-service/category.service';
 import { SurveyService } from 'src/app/services/survey-service/survey.service';
@@ -16,12 +17,10 @@ export class AddSurveyComponent implements OnInit {
     private categorySerivce: CategoryService, private router: Router) { }
 
   surveyForm: FormGroup;
-  categoriesList: ICategory[];
+  categoriesList$: Observable<ICategory[]>;
 
   ngOnInit(): void {
-    this.categorySerivce.getCategories().subscribe(cats => {
-      this.categoriesList = cats;
-    });
+    this.categoriesList$ = this.categorySerivce.getCategories();
     this.surveyForm = this.formBuilder.group({
       name: new FormControl('',
         [
@@ -49,7 +48,7 @@ export class AddSurveyComponent implements OnInit {
   }
 
   get categories() {
-    return this.categoriesList
+    return this.categoriesList$;
   }
 
   get name() {
