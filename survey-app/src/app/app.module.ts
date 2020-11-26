@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgApexchartsModule} from 'ng-apexcharts';
 import {PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,9 @@ import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-s
 import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
 import { EditCategoryComponent } from './components/edit-category/edit-category/edit-category.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { EditCategoryComponent } from './components/edit-category/edit-category/
     ListSurveysComponent,
     CategoryListAdministrationComponent,
     EditCategoryComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,13 @@ import { EditCategoryComponent } from './components/edit-category/edit-category/
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   
 })

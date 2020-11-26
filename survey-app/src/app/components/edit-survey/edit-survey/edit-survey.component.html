@@ -9,7 +9,6 @@
     <div *ngFor="let cat of categories | async; let catIndex = index">
       <input class="form-check-input" formControlName="categoryId" type="radio" [checked]="true" id={{cat.name}} [value]="cat.id">
       <label class="form-check-label" for={{cat.name}}>{{cat.name}}</label>
-    {{form.controls['categoryId'].value == cat.id}}
     </div>
     
     <h2> Options</h2>  <button class="btn btn-primary" type="button" (click)="addOption()">+</button>
