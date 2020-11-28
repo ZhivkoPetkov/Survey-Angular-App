@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { ICategory } from 'src/app/interfaces/ICategory';

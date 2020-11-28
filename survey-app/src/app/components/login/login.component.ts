@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,13 +23,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.
-      login(this.form.value);
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate([""]);
-    } else {
-      this.form.reset();
-      this.router.navigate(["auth/login"])
-    }
+      login(this.form.value).subscribe(data => {
+        this.authService.setToken(data['token']);
+        this.authService.setRole(data['role']);
+        if (this.authService.isAuthenticated()) {
+          this.router.navigate([""]);
+        }
+      })
+    this.form.reset();
+    this.router.navigate(["auth/login"])
+
   }
 
   get password() {

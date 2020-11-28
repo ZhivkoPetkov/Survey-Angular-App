@@ -8,7 +8,7 @@ import { SurveyService } from 'src/app/services/survey-service/survey.service';
 @Component({
   selector: 'app-list-surveys',
   templateUrl: './list-surveys.component.html',
-  styleUrls: ['./list-surveys.component.css']
+  styleUrls: ['./list-surveys.component.css'],
 })
 export class ListSurveysComponent implements OnInit {
   surveys$: Observable<SurveyViewModel[]>
