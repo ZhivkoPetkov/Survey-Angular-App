@@ -1,8 +1,11 @@
 
+<h2 class="listing-title"><u>{{category}}</u></h2>
+<h4 class="listing-description"><p>{{description}}</p></h4>
+
 <div class="row">
-<div *ngFor="let survey of surveys$ | async" class="row" style="margin-left: 70px; margin-top: 80px;">
+<div *ngFor="let survey of surveys$ | async" class="row">
     <div class="col" style="text-align: center;">
-    <div class="card text-white bg-info mb-3" style="width: 18rem; height: 10rem;">
+    <div class="card text-white bg-info mb-3 listing-surveys" style="width: 18rem; height: 10rem;">
         <div class="card-header">{{survey.categoryName}}</div>
         <div class="card-body">
           <h5 class="card-title">{{survey.name}}</h5>

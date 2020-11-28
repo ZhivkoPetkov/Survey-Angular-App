@@ -30,4 +30,8 @@ export class CategoryService {
     return this.http.post<ICategory>(`https://localhost:44360/api/categories/update`, category);
   }
 
+  public getCategoryDescriptionByName(name: string){
+    return this.http.get(`https://localhost:44360/api/categories/description/${name}`)
+  }
+
 }
