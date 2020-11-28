@@ -13,7 +13,7 @@
     <div>
         <app-piechart #pieChart [inputVotes]="votes" [inputLabels]="labels"></app-piechart>
     </div>
-    <div>
+    <div *ngIf="this.authService.isAdmin()">
         <h3>Administrative tools:</h3>
        
         <button type="button" style="margin-right:30px;" class="btn btn-outline-danger" (click)="deleteSurvey()">Delete Survey</button>

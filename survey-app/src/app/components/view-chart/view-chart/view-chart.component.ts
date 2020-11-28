@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ISurvey } from 'src/app/interfaces/ISurvey';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { SurveyService } from 'src/app/services/survey-service/survey.service';
 import { PieChartComponent } from '../../pie-chart/pie-chart.component';
 
@@ -13,7 +14,7 @@ export class ViewChartComponent implements OnInit {
   @ViewChild(PieChartComponent) chart: PieChartComponent;
 
   constructor(private route: ActivatedRoute,
-    private surveyService: SurveyService, private router: Router) {
+    private surveyService: SurveyService, private router: Router, private authService: AuthService) {
   }
   survey: ISurvey;
   votes: number[];
