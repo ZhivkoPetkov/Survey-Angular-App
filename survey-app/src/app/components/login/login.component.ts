@@ -10,21 +10,24 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  form : FormGroup
+  form: FormGroup
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username : new FormControl('', [Validators.required]),
-      password : new FormControl('', [Validators.required, Validators.minLength(6)]),
-    })  }
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    })
+  }
 
-   login(){
+  login() {
     this.authService.
-            login(this.form.value);
-    if(this.authService.isAuthenticated)
-      {
-        this.router.navigate([""]);
+      login(this.form.value);
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate([""]);
+    } else {
+      this.form.reset();
+      this.router.navigate(["auth/login"])
     }
   }
 
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
     return this.form.get('password')
   }
 
-  get username(){
+  get username() {
     return this.form.get('username')
   }
 }

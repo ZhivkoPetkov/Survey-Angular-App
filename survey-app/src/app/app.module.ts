@@ -19,6 +19,8 @@ import { EditCategoryComponent } from './components/edit-category/edit-category/
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
+import { ResponseHandlingInterceptor } from './interceptors/response-handling-interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -42,12 +44,18 @@ import { JwtInterceptor } from './interceptors/jwt-interceptor';
     HttpClientModule,
     NgApexchartsModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseHandlingInterceptor,
       multi: true
     }
   ],
