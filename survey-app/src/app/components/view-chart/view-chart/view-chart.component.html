@@ -1,14 +1,18 @@
 <div class="center">
-    <h3>{{survey.name}}</h3>
-    <div class="btn-group" *ngIf="!isVoted">
+    <h3><u>{{survey.name}}</u></h3>
+    <div class="btn-group" *ngIf="!isVoted && !alreadyVoted">
         <div *ngFor="let option of labels; let labelIndex=index">
             <button type="button" class="btn btn-success" style="margin-right:20px;"
                 (click)="voteFor(labelIndex)">{{option.toUpperCase()}}</button>
         </div>
     </div>
 
+    <div *ngIf="alreadyVoted">
+        <h3>You already voted in this survey. Come back. Thank you!</h3>
+    </div>
+
     <div *ngIf="isVoted">
-        <h2>Your vote is for: {{votedFor?.toUpperCase()}}. Thank you!</h2>
+        <h3>Your vote is for: {{votedFor?.toUpperCase()}}. Thank you!</h3>
     </div>
     <div>
         <app-piechart #pieChart [inputVotes]="votes" [inputLabels]="labels"></app-piechart>

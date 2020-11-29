@@ -26,12 +26,22 @@ export class SurveyService {
     survey.options.map(opt => {
       result.options.push(opt.option);
     })
+    
     return this.http.post<SurveyInputModel>(`https://localhost:44360/api/surveys`, result);
   }
 
   public postVoteForSurvey(surveyId, optionId) {
+    this.setInStorage(surveyId);
     let votingInfo = [surveyId, optionId];
     return this.http.post<number[]>(`https://localhost:44360/api/surveys/voting`, votingInfo);
+  }
+
+  private setInStorage(surveyId){
+    localStorage.setItem(surveyId,surveyId);
+  }
+
+  public alreadyVoted(surveyId){
+    return localStorage.getItem(surveyId) !== null;
   }
 
   public deleteSurvey(id) {

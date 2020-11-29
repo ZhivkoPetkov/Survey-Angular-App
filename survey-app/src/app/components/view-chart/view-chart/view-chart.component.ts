@@ -21,6 +21,7 @@ export class ViewChartComponent implements OnInit {
   labels: string[];
   isVoted: boolean;
   votedFor: string;
+  alreadyVoted: boolean;
 
   ngOnInit(): void {
     this.survey = this.route.snapshot.data['survey'];
@@ -28,6 +29,7 @@ export class ViewChartComponent implements OnInit {
     this.labels = this.survey.options.map(x => x.name);
     this.isVoted = false;
     this.survey.name = this.survey.name.endsWith('?') ? this.survey.name : this.survey.name + '?'
+    this.alreadyVoted = this.surveyService.alreadyVoted(this.survey.id);
   }
 
   voteFor(index) {
