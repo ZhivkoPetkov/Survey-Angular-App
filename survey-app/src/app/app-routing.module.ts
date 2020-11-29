@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ViewChartComponent } from './components/view-chart/view-chart/view-chart.component';
 import { ViewCategoryResolver } from './resolvers/view-category/view-category.resolver';
 import { ViewSurveyResolver } from './resolvers/view-survey.resolver';
+import { AuthGuard } from './services/auth-guard';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
   {
     path: "admin/categories",
     component: CategoryListAdministrationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "auth/login",
