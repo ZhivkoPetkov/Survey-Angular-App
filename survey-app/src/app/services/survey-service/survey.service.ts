@@ -51,4 +51,9 @@ export class SurveyService {
   public getSurveysByCategory(categoryName: string){
     return this.http.get<SurveyViewModel[]>(`https://localhost:44360/api/surveys/category/${categoryName}`);
   }
+
+  
+  public getLastSurveysFromCategories() : Observable<SurveyViewModel[]>{
+    return this.http.get<SurveyViewModel[]>(`https://localhost:44360/api/surveys/last`);
+  }
 }

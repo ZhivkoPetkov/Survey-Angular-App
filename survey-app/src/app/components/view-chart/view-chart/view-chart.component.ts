@@ -14,7 +14,7 @@ export class ViewChartComponent implements OnInit {
   @ViewChild(PieChartComponent) chart: PieChartComponent;
 
   constructor(private route: ActivatedRoute,
-    private surveyService: SurveyService, private router: Router, private authService: AuthService) {
+    private surveyService: SurveyService, private router: Router, public authService: AuthService) {
   }
   survey: ISurvey;
   votes: number[];

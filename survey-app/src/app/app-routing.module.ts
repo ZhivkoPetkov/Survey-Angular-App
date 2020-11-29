@@ -5,6 +5,7 @@ import { AddSurveyComponent } from './components/add-survey/add-survey.component
 import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
 import { EditCategoryComponent } from './components/edit-category/edit-category/edit-category.component';
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
+import { LandingComponent } from './components/landing/landing.component';
 import { ListSurveysComponent } from './components/list-surveys/list-surveys/list-surveys.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -13,6 +14,10 @@ import { ViewCategoryResolver } from './resolvers/view-category/view-category.re
 import { ViewSurveyResolver } from './resolvers/view-survey.resolver';
 
 const routes: Routes = [
+  {
+    path: "",
+    component: LandingComponent,
+  },
   {
     path: "category/add",
     component: AddCategoryComponent,

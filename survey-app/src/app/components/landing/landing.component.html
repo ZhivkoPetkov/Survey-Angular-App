@@ -1,0 +1,19 @@
+<img src="../assets/My_Voice_My_Vote_Matters-01.png" style="width: 100%;">
+
+<div style="text-align: center;">
+<h2 style="color:darkcyan;"><u>Last surveys in our categories:</u></h2>
+
+<div class="row">
+    <div *ngFor="let survey of surveys$ | async" class="row">
+       <div class="col listing-surveys" style="text-align: center;" >
+        <div class="card text-white bg-info mb-3 listing-surveys" style="width: 18rem; height: 10rem;">
+            <div class="card-header">{{survey.categoryName}}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{survey.name}}</h5>
+            </div>
+          </div>
+          <button type="button" [routerLink]= "['../','survey', survey.id]" class="btn btn-outline-success">Give your vote</button>
+        </div> 
+    </div>
+    </div>
+</div>

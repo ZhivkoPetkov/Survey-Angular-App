@@ -20,6 +20,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ResponseHandlingInterceptor } from './interceptors/response-handling-interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { LandingComponent } from './components/landing/landing.component';
+import { CardSurveyComponent } from './components/card-survey/card-survey.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
     EditCategoryComponent,
     LoginComponent,
     RegisterComponent,
+    LandingComponent,
+    CardSurveyComponent,
   ],
   imports: [
     BrowserModule,
