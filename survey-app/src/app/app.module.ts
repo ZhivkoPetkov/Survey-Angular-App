@@ -21,6 +21,7 @@ import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ResponseHandlingInterceptor } from './interceptors/response-handling-interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingComponent } from './components/landing/landing.component';
+import { SurveyListAdministrationComponent } from './components/administration/survey-list-administration/survey-list-administration.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LandingComponent } from './components/landing/landing.component';
     LoginComponent,
     RegisterComponent,
     LandingComponent,
+    SurveyListAdministrationComponent,
   ],
   imports: [
     BrowserModule,

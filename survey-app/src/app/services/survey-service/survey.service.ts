@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { ISurvey } from 'src/app/interfaces/ISurvey';
 import { SurveyInputModel } from 'src/app/interfaces/SurveyInputModel';
+import { SurveyListViewModel } from 'src/app/interfaces/SurveyListViewModel';
 import { SurveyUpdateModel } from 'src/app/interfaces/SurveyUpdateModel';
 import { SurveyViewModel } from 'src/app/interfaces/SurveyViewModel';
 
@@ -15,6 +16,10 @@ export class SurveyService {
   public getSurvey(id: number) {
     var survey = this.http.get<ISurvey>(`https://localhost:44360/api/surveys/${id}`);
     return survey;
+  }
+
+  public getAllSurveys() {
+    return this.http.get<SurveyListViewModel[]>(`https://localhost:44360/api/surveys/all`);
   }
 
   public postSurvey(survey): Observable<SurveyInputModel> {

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddSurveyComponent } from './components/add-survey/add-survey.component';
 import { CategoryListAdministrationComponent } from './components/administration/category-list-administration/category-list-administration/category-list-administration.component';
+import { SurveyListAdministrationComponent } from './components/administration/survey-list-administration/survey-list-administration.component';
 import { EditCategoryComponent } from './components/edit-category/edit-category/edit-category.component';
 import { EditSurveyComponent } from './components/edit-survey/edit-survey/edit-survey.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -49,6 +50,11 @@ const routes: Routes = [
   {
     path: "admin/categories",
     component: CategoryListAdministrationComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "admin/surveys",
+    component: SurveyListAdministrationComponent,
     canActivate: [AuthGuard]
   },
   {

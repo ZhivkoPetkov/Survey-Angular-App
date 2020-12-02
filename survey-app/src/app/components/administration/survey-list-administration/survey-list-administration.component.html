@@ -1,0 +1,33 @@
+
+<div style="text-align: center;">
+    <h2><u>Survey Аdministration</u></h2>
+
+    <h2>Categories</h2>
+  <div *ngFor="let cat of categoriesList$ | async; let catIndex = index" class="col-md-10 offset-md-1">
+    <input class="form-check-input" (change)="filterBy(cat.name)" [checked]="checkedCategory == cat.name ? true : false" type="radio" id={{cat.name}} value={{cat.id}}>
+    <label class="form-check-label" for={{cat.name}}>{{cat.name}}</label>
+  </div>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Survey name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Votes</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let survey of filteredSurveys$ | async; let index = index">
+            <th style="width: 5%;" scope="row">{{index + 1}}</th>
+            <td style="width: 40%;">{{survey.name}}</td>
+            <td style="width: 15%;">{{survey.category}}</td>
+            <td style="width: 15%;">{{survey.votes}}</td>
+            <td style="width: 25%;"><button class="link" (click)="delete(survey.id)">Delete</button> | <button  [routerLink]= "['../../','survey',survey.id, 'edit']"  class="link" >Edit</button></td>
+          </tr>
+        
+        </tbody>
+      </table>
+</div>
