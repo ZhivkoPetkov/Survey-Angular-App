@@ -13,13 +13,15 @@ import { SurveyViewModel } from 'src/app/interfaces/SurveyViewModel';
 export class SurveyService {
   constructor(private http: HttpClient) { }
 
+  private API : string = 'https://zhp-surveys.azurewebsites.net/api';
+
   public getSurvey(id: number) {
-    var survey = this.http.get<ISurvey>(`https://localhost:44360/api/surveys/${id}`);
+    var survey = this.http.get<ISurvey>(`${this.API}/surveys/${id}`);
     return survey;
   }
 
   public getAllSurveys() {
-    return this.http.get<SurveyListViewModel[]>(`https://localhost:44360/api/surveys/all`);
+    return this.http.get<SurveyListViewModel[]>(`${this.API}/surveys/all`);
   }
 
   public postSurvey(survey): Observable<SurveyInputModel> {
@@ -32,13 +34,13 @@ export class SurveyService {
       result.options.push(opt.option);
     })
     
-    return this.http.post<SurveyInputModel>(`https://localhost:44360/api/surveys`, result);
+    return this.http.post<SurveyInputModel>(`${this.API}/surveys`, result);
   }
 
   public postVoteForSurvey(surveyId, optionId) {
     this.setInStorage(surveyId);
     let votingInfo = [surveyId, optionId];
-    return this.http.post<number[]>(`https://localhost:44360/api/surveys/voting`, votingInfo);
+    return this.http.post<number[]>(`${this.API}/surveys/voting`, votingInfo);
   }
 
   private setInStorage(surveyId){
@@ -51,24 +53,24 @@ export class SurveyService {
 
   public deleteSurvey(id) {
     console.log(id)
-    return this.http.delete(`https://localhost:44360/api/surveys/${id}`)
+    return this.http.delete(`${this.API}/surveys/${id}`)
   }
 
   public deleteOptionFromSurvey(surveyId, optionId){
       let votingInfo = [surveyId, optionId];
-      return this.http.post<number[]>(`https://localhost:44360/api/surveys/delete-option`, votingInfo);
+      return this.http.post<number[]>(`${this.API}/surveys/delete-option`, votingInfo);
     }
     
   public updateSurvey(survey: ISurvey){
-    return this.http.post<ISurvey>(`https://localhost:44360/api/surveys/update`, survey);
+    return this.http.post<ISurvey>(`${this.API}/surveys/update`, survey);
   }
 
   public getSurveysByCategory(categoryName: string){
-    return this.http.get<SurveyViewModel[]>(`https://localhost:44360/api/surveys/category/${categoryName}`);
+    return this.http.get<SurveyViewModel[]>(`${this.API}/surveys/category/${categoryName}`);
   }
 
   
   public getLastSurveysFromCategories() : Observable<SurveyViewModel[]>{
-    return this.http.get<SurveyViewModel[]>(`https://localhost:44360/api/surveys/last`);
+    return this.http.get<SurveyViewModel[]>(`${this.API}/surveys/last`);
   }
 }

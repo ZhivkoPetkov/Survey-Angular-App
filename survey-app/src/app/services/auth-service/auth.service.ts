@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  private API : string = 'https://zhp-surveys.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 
   login(user) {
-    return this.http.post("https://localhost:44360/api/users/login", user);
+    return this.http.post(`${this.API}/users/login`, user);
   }
 
   setToken(token){
@@ -26,7 +27,7 @@ export class AuthService {
   }
 
   register(user) {
-    return this.http.post("https://localhost:44360/api/users/register", user);
+    return this.http.post(`${this.API}/users/register`, user);
   }
 
   isAuthenticated() {
