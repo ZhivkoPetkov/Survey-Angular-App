@@ -22,7 +22,7 @@
           
           <tr *ngFor="let survey of filteredSurveys$ | async; let index = index">
             <th style="width: 5%;" scope="row">{{index + 1}}</th>
-            <td style="width: 40%;">{{survey.name}}</td>
+            <td style="width: 40%;"><a [routerLink]="['../../','survey', survey.id]">{{survey.name}}</a></td>
             <td style="width: 15%;">{{survey.category}}</td>
             <td style="width: 15%;">{{survey.votes}}</td>
             <td style="width: 25%;"><button class="link" (click)="delete(survey.id)">Delete</button> | <button  [routerLink]= "['../../','survey',survey.id, 'edit']"  class="link" >Edit</button></td>

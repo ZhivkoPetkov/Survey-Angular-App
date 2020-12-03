@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Option } from 'src/app/classes/Option';
 import { ICategory } from 'src/app/interfaces/ICategory';
@@ -15,7 +15,7 @@ import { SurveyService } from 'src/app/services/survey-service/survey.service';
 })
 export class EditSurveyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router : Router,
     private surveyService: SurveyService, private categorySerivce: CategoryService) {
 
   }
@@ -100,9 +100,9 @@ export class EditSurveyComponent implements OnInit {
   save() {
     this.updateSurveyProperties()
     this.surveyService.updateSurvey(this.survey).subscribe(x => {
-      console.log('success change')
+      this.router.navigate(["survey",this.survey.id])
     });
-    console.log(this.survey);
+   
   }
   get categories() {
     return this.categoriesList$;
