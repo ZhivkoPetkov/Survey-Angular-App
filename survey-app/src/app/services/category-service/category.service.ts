@@ -6,7 +6,7 @@ import { ICategory } from 'src/app/interfaces/ICategory';
   providedIn: 'root'
 })
 export class CategoryService {
-  private API : string = 'https://zhp-surveys.azurewebsites.net/api';
+  private API : string = 'https://surveysapi.azurewebsites.net/api/';
 
   constructor(private http : HttpClient) { }
 

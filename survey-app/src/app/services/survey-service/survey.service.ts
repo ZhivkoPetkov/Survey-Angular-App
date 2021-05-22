@@ -13,7 +13,7 @@ import { SurveyViewModel } from 'src/app/interfaces/SurveyViewModel';
 export class SurveyService {
   constructor(private http: HttpClient) { }
 
-  private API : string = 'https://zhp-surveys.azurewebsites.net/api';
+  private API : string = 'https://surveysapi.azurewebsites.net/api/';
 
   public getSurvey(id: number) {
     var survey = this.http.get<ISurvey>(`${this.API}/surveys/${id}`);
