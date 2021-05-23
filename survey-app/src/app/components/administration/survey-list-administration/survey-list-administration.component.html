@@ -25,7 +25,7 @@
             <td style="width: 40%;"><a [routerLink]="['../../','survey', survey.id]">{{survey.name}}</a></td>
             <td style="width: 15%;">{{survey.category}}</td>
             <td style="width: 15%;">{{survey.votes}}</td>
-            <td style="width: 25%;"><button class="link" (click)="delete(survey.id)">Delete</button> | <button  [routerLink]= "['../../','survey',survey.id, 'edit']"  class="link" >Edit</button></td>
+            <td style="width: 25%;"><button class="link btn-danger" (click)="delete(survey.id)">Delete</button> | <button  [routerLink]= "['../../','survey',survey.id, 'edit']"  class="link btn-warning" >Edit</button></td>
           </tr>
         
         </tbody>

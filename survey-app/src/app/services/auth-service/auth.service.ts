@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private API : string = 'https://zhp-surveys.azurewebsites.net/api';
+  private API : string = 'https://surveysapi.azurewebsites.net/api/';
 
   constructor(private http: HttpClient) { }
 

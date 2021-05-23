@@ -1,0 +1,10 @@
+* {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.gradient {
+    background: rgb(236,91,43);
+    background: linear-gradient(90deg, rgba(236,91,43,1) 0%, rgba(183,132,201,1) 69%, rgba(45,88,255,0.8519782913165266) 100%);
+}

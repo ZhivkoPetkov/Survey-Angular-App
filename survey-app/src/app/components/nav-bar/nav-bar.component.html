@@ -1,54 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-dark" style="font-size: 20px;">
-    <a class="navbar-brand"  style="font-size: 20px;" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-            <div *ngFor="let category of categories">
-            <a class="dropdown-item" routerLink="/{{category.name}}">{{category.name}}</a>
-          </div>
-          </div>
-        </li>
+<nav class="navbar gradient navbar-expand-lg">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/logo.svg" alt="" width="50" height="50" class="d-inline-block align-text-top">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink='survey/add'>Add survey</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink='category/add'>Add category</a>
-          </li>
-          <li class="nav-item dropdown" *ngIf="authService.isAdmin()">
-            <a class="nav-link dropdown-toggle" style="color: orange" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Administration
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-              <a class="dropdown-item" routerLink="/admin/categories">Categories</a>
-              <a class="dropdown-item" routerLink="/admin/surveys">Surveys</a>
-            </div>  
-          </li>
-      </ul>
-       
-      <ul class="navbar-nav">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item dropdown " >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div *ngFor="let category of categories">
+            <a class="dropdown-item" style="color:black" routerLink="/{{category.name}}">{{category.name}}</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink='survey/add'>Add survey</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='category/add'>Add category</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="authService.isAdmin()">
+        <a class="nav-link dropdown-toggle" style="color: orange" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Administration
+        </a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="color:black" routerLink="/admin/categories">Categories</a>
+          <a class="dropdown-item" style="color:black" routerLink="/admin/surveys">Surveys</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
       <li class="nav-item" *ngIf="!authService.isAuthenticated()" style="float: right;">
         <a class="nav-link" routerLink='auth/login'>Login</a>
       </li>
-     
+
       <li class="nav-item" *ngIf="!authService.isAuthenticated()" style="float: right;">
         <a class="nav-link" routerLink='auth/register'>Register</a>
       </li>
       <li class="nav-item" *ngIf="authService.isAuthenticated()" style=" float: right;">
         <a class="nav-link" (click)="logout()">Logout</a>
       </li>
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> -->
-    </div>
-  </nav>
+  </div>
+</nav>
