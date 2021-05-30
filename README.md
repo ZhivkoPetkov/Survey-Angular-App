@@ -1,7 +1,7 @@
 #### Survey Application based on Angular and .Net Core API(hosted on Azure as App service)
 The users of the application can create surveys and share them with the world to take everyones opinion abouth any thematic. The chart visualization is real time and the data is stored to MSSQL database.
 
-URL: https://angular-surveys.azurewebsites.net/
+URL: https://zhpsurveys2020.z6.web.core.windows.net/
 
 ```bash
 username: petkov
