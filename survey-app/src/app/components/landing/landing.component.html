@@ -1,74 +1,38 @@
-<!-- <img src="../assets/My_Voice_My_Vote_Matters-01.png" style="width: 100%;">
-
-<div style="text-align: center;">
-<h2 style="color:darkcyan;"><u>Last surveys in our categories:</u></h2>
-
-<div class="row">
-    <div *ngFor="let survey of surveys$ | async" class="row">
-       <div class="col listing-surveys" style="text-align: center;" >
-        <div class="card text-white bg-info mb-3 listing-surveys" style="width: 18rem; height: 10rem;">
+<div class="paralax"></div>
+<div class="info-box" style="transform: translate(0,-20rem); ">
+  <div>
+    <p> Get answers with surveys</p>
+  </div>
+  <br />
+  <p>Be the person with great ideas. Surveys give you actionable insights and fresh perspectives.</p>
+</div>
+<div class="info-box">
+ 
+  <p>Conduct market research quickly.</p>
+</div>  
+<div class="paralax3"></div>
+<div class="info-box">
+  <p>Conduct market research quickly.</p>
+  <p>Expand your market research capabilities to keep track of your brand, test your ideas, or get a gut check with
+    your target audience.</p>
+</div>
+<div class="paralax2"></div>
+<div class="info-box">
+<h2 style="display: flex; justify-content: center;">Our last surveys</h2>
+  <div>
+    <div class="row">
+      <div *ngFor="let survey of surveys$ | async">
+        <div class="col listing-surveys" style="text-align: center;">
+          <div class="card text-white bg-info mb-3 listing-surveys" style="width: 18rem; height: 10rem;">
             <div class="card-header">{{survey.categoryName}}</div>
             <div class="card-body">
               <h5 class="card-title">{{survey.name}}</h5>
             </div>
           </div>
-          <button type="button" [routerLink]= "['../','survey', survey.id]" class="btn btn-outline-success">Give your vote</button>
-        </div> 
-    </div>
-    </div>
-</div> -->
-
-<div class="bg info">
-  <div>
-    <img class="content-images" src="../../../assets/voting1.png">
-  </div>
-  <div>
-   <h1> Get answers with surveys</h1>
-   <h3>Be the person with great ideas. Surveys give you actionable insights and fresh perspectives.
-    </h3>
-  </div>
-</div>
-<div style="height: 4px;" class="separator"></div>
-<div class="bg info">
-  
-  <div>
-    <h1>Everything you need to create the best surveys</h1>
-  </div>
-  <div>
-    <img class="content-images" src="../../../assets/voting2.png">
-  </div>
-</div>
-<div style="height: 4px;" class="separator"></div>
-<div class="bg info">
-  <div>
-    <img class="content-images" src="../../../assets/voting3.png">
-  </div>
-  <div>
-    <h1>Happy Voting, Happy Analyzing</h1>
-  </div>
-</div>
-<div style="height: 4px;" class="separator"></div>
-
-  <h2 class="bg info" style="display: flex; justify-content: center;">Our last surveys</h2>
-
-<div style="height: 4px;" class="separator"></div>
-
-<div class="bg info" style="margin-bottom: 30px;">
-  <div >
-    <div class="row">
-      <div *ngFor="let survey of surveys$ | async"  >
-         <div class="col listing-surveys" style="text-align: center;" >
-          <div class="card text-white bg-info mb-3 listing-surveys" style="width: 18rem; height: 10rem;">
-              <div class="card-header">{{survey.categoryName}}</div>
-              <div class="card-body">
-                <h5 class="card-title">{{survey.name}}</h5>
-              </div>
-              
-            </div>
-            <button type="button" [routerLink]= "['../','survey', survey.id]" class="btn btn-outline-success">Vote</button>
-          </div> 
-         
+          <button type="button" [routerLink]="['../','survey', survey.id]" class="btn btn-outline-success">Vote</button>
+        </div>
       </div>
-      </div>
+    </div>
   </div>
-  </div>
+</div>
+<div class="paralax"></div>

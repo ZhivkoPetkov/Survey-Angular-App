@@ -1,31 +1,57 @@
-.listing-surveys{
+ .listing-surveys{
     margin-left: 70px; 
     margin-top: 10px;
  }
 
- .info {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     color: white;
-     margin-left: 10rem;
-     margin-right: 10rem;
- }
 
- .bg {
-     background-color: white;
-     color: orange;
- }
-
- .content-images {
+.info-box {
+  position: absolute;
     display: flex;
-    justify-content: space-around ;
+    justify-content: space-around;
     align-items: center;
-    height: 40vh;
-    text-align: center;
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(90deg, rgba(164,164,164,1) 0%, rgba(9,9,9,1) 50%, rgba(164,164,164,1) 100%);
+    width: 100%;
+    border-radius: 2rem;
+    
 }
 
-.separator{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,139,79,1) 50%, rgba(255,255,255,1) 100%);
-    margin: 10px;
+.info-box p {
+    font-size:2rem;
 }
+
+.paralax {
+  background-image: url("../../../assets/background.jpg");
+  height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.paralax2 {
+    background-image: url("../../../assets/background2.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .paralax3 {
+    background-image: url("../../../assets/background3.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  @media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
